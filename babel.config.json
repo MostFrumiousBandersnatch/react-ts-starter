@@ -1,0 +1,24 @@
+{
+  "presets": [
+    ["@babel/preset-env", {
+        "modules": false,
+        "useBuiltIns": "usage",
+        "corejs": 3
+    }],
+    ["@babel/preset-typescript", {
+        "allExtensions": true,
+        "isTSX": true,
+        "allowNamespaces": true
+    }],
+    "@babel/preset-react"
+  ],
+  "plugins": ["react-hot-loader/babel"],
+  "env": {
+    "production": {
+      "presets": ["minify"]
+    },
+    "test": {
+      "presets": ["@babel/preset-env", "@babel/preset-react"]
+    }
+  }
+}
