@@ -73,9 +73,7 @@ module.exports = dev => ({
       },
     ],
   },
-  plugins: [
-    new HtmlWebpackPlugin({ template: 'index.html.ejs' }),
-  ],
+  plugins: [new HtmlWebpackPlugin({ template: 'index.html.ejs' })],
   /*externals: {
     react: 'React',
     'react-dom': 'ReactDOM',
@@ -84,7 +82,10 @@ module.exports = dev => ({
     hints: false,
   },
   resolve: {
-    extensions: ['*', '.js', '.jsx', '.tsx', '.ts'],
+    extensions: ['.js', '.jsx', '.tsx', '.ts'],
+    alias: {
+      '@root': srcDir,
+    },
     plugins: [
       new TsconfigPathsPlugin({
         configFile: resolve(rootDir, 'tsconfig.json'),

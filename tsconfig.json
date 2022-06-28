@@ -3,16 +3,17 @@
     "target": "ESNext",
     "module": "ESNext",
     "esModuleInterop": true,
-    "lib": ["ESNext"],
+    "lib": ["ESNext", "DOM"],
+    "jsx": "preserve",
     "noImplicitAny": true,
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "sourceMap": true,
     "declaration": true,
-    "outDir": "dist",
-    "baseUrl": ".",
+    "outDir": "./dist",
+    "baseUrl": "./src",
     "paths": {
-      "*": ["node_modules/*"]
+      "@root/*": ["*"]
     }
   },
   "include": ["./src/**/*.ts", "./src/**/*.tsx"],
