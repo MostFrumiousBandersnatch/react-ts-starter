@@ -6,7 +6,7 @@
   "author": "Ivan Kondratyev",
   "license": "GPL v3",
   "scripts": {
-    "build": "yarn run clean-dist && webpack -p --config=configs/webpack/prod.js",
+    "build": "yarn run clean-dist && webpack --config=./webpack/prod.js",
     "gen-build-stats": "webpack -p --config=webpack/prod.js --json > dist/stats.json",
     "clean-dist": "rimraf dist/*",
     "lint": "eslint './src/**/*.ts?(x)'",

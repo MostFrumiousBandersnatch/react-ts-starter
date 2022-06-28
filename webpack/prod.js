@@ -13,7 +13,7 @@ module.exports = merge(commonConfig(false), {
   entry: './index.tsx',
   output: {
     filename: 'js/bundle.[hash].min.js',
-    path: resolve(__dirname, '../../dist'),
+    path: resolve(__dirname, '../dist'), //TODO: replace with distDir
     publicPath: '/',
   },
   devtool: 'hidden-source-map',

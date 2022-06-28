@@ -7,6 +7,7 @@ const { TsconfigPathsPlugin } = require('tsconfig-paths-webpack-plugin');
 
 const rootDir = resolve(__dirname, '../');
 const srcDir = resolve(rootDir, 'src');
+const distDir = resolve(rootDir, 'dist');
 
 module.exports = dev => ({
   resolve: {
