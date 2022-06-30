@@ -1,6 +1,7 @@
 /* eslint-env node, commonjs */
 // development config
 const merge = require('webpack-merge');
+const { resolve } = require('path');
 const webpack = require('webpack');
 const commonConfig = require('./common');
 
@@ -14,6 +15,9 @@ module.exports = merge(commonConfig(true), {
   ],
   devServer: {
     hot: true, // enable HMR on the server
+    static: {
+      directory: resolve(__dirname, '../assets'),
+    },
   },
   //devtool: 'cheap-module-eval-source-map',
   plugins: [
