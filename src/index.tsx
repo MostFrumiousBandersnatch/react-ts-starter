@@ -1,9 +1,10 @@
 import React from 'react';
-import { render } from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { helloWorld } from '@root/lib';
 
 const App = () => <h1>{helloWorld()}</h1>;
 
 const mountPoint = document.getElementById('react-root');
+const root = createRoot(mountPoint);
 
-render(<App />, mountPoint);
+root.render(<App />);
