@@ -1,11 +1,10 @@
 /* eslint-env node, commonjs */
 // development config
-const merge = require('webpack-merge');
-const { resolve } = require('path');
-const webpack = require('webpack');
-const commonConfig = require('./common');
+import merge from 'webpack-merge';
+import webpack from 'webpack';
+import commonConfig, {assetsDir} from './common.mjs';
 
-module.exports = merge(commonConfig(true), {
+export default merge(commonConfig(true), {
   mode: 'development',
   entry: [
     'react-hot-loader/patch', // activate HMR for React
@@ -16,7 +15,7 @@ module.exports = merge(commonConfig(true), {
   devServer: {
     hot: true, // enable HMR on the server
     static: {
-      directory: resolve(__dirname, '../assets'),
+      directory: assetsDir,
     },
   },
   //devtool: 'cheap-module-eval-source-map',

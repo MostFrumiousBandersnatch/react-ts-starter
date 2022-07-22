@@ -1,15 +1,16 @@
 // shared config (dev and prod)
-/* eslint-env node, commonjs */
-const { resolve } = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const { TsconfigPathsPlugin } = require('tsconfig-paths-webpack-plugin');
+/* eslint-env node, es2016 */
+import path from 'path';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import { TsconfigPathsPlugin } from 'tsconfig-paths-webpack-plugin';
 
-const rootDir = resolve(__dirname, '../');
-const srcDir = resolve(rootDir, 'src');
-const distDir = resolve(rootDir, 'dist');
+export const rootDir = path.resolve('./');
+export const srcDir = path.resolve(rootDir, 'src');
+export const distDir = path.resolve(rootDir, 'dist');
+export const assetsDir = path.resolve(rootDir, 'assets');
 
-module.exports = dev => ({
+export default dev => ({
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
   },
@@ -89,7 +90,7 @@ module.exports = dev => ({
     },
     plugins: [
       new TsconfigPathsPlugin({
-        configFile: resolve(rootDir, 'tsconfig.json'),
+        configFile: path.resolve(rootDir, 'tsconfig.json'),
       }),
     ],
   },
