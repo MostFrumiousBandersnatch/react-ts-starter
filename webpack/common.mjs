@@ -4,6 +4,8 @@ import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { TsconfigPathsPlugin } from 'tsconfig-paths-webpack-plugin';
+import ESLintPlugin from "eslint-webpack-plugin";
+import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 
 export const rootDir = path.resolve('./');
 export const srcDir = path.resolve(rootDir, 'src');
@@ -75,11 +77,18 @@ export default dev => ({
       },
     ],
   },
-  plugins: [new HtmlWebpackPlugin({ template: 'index.html.ejs' })],
-  /*externals: {
-    react: 'React',
-    'react-dom': 'ReactDOM',
-  },*/
+  plugins: [
+    new HtmlWebpackPlugin({ template: 'index.html.ejs' }),
+    new ForkTsCheckerWebpackPlugin({
+      typescript: {
+        configFile: path.join(rootDir, 'tsconfig.json'),
+        mode: 'write-references'
+      }
+    }),
+    new ESLintPlugin({
+      extensions: ["js", "jsx", "ts", "tsx"],
+    }),
+  ],
   performance: {
     hints: false,
   },

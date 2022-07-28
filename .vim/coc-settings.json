@@ -2,5 +2,6 @@
   "tsserver.log": "verbose",
   "tsserver.trace.server": "verbose",
   "typescript.preferences.importModuleSpecifier": "non-relative",
+  "typescript.preferences.quoteStyle": "single",
   "eslint.alwaysShowStatus": true
 }

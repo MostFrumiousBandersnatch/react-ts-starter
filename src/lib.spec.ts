@@ -1,4 +1,4 @@
-import {helloWorld} from "@root/lib"
+import {helloWorld} from '@root/lib'
 
 describe('lib', () => {
   it('should greet the world', () => {
