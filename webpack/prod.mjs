@@ -2,9 +2,8 @@
 // production config
 import merge from 'webpack-merge';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-
-import commonConfig, {distDir, assetsDir} from './common.mjs';
-
+import CopyPlugin from 'copy-webpack-plugin';
+import commonConfig, { distDir, assetsDir } from './common.mjs';
 
 export default merge(commonConfig(false), {
   mode: 'production',
@@ -20,6 +19,11 @@ export default merge(commonConfig(false), {
     new MiniCssExtractPlugin({
       filename: '[name].css',
       chunkFilename: '[id].css',
+    }),
+    new CopyPlugin({
+      patterns: [
+        { from: assetsDir, to: distDir },
+      ],
     }),
   ],
 });
