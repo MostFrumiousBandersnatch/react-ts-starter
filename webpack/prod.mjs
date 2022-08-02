@@ -3,7 +3,11 @@
 import merge from 'webpack-merge';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import CopyPlugin from 'copy-webpack-plugin';
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+
 import commonConfig, { distDir, assetsDir } from './common.mjs';
+
+const analyze = process.argv.includes('--analyze');
 
 export default merge(commonConfig(false), {
   mode: 'production',
@@ -21,9 +25,14 @@ export default merge(commonConfig(false), {
       chunkFilename: '[id].css',
     }),
     new CopyPlugin({
-      patterns: [
-        { from: assetsDir, to: distDir },
-      ],
+      patterns: [{ from: assetsDir, to: distDir }],
     }),
+    ...(analyze
+      ? [
+          new BundleAnalyzerPlugin({
+            analyzerMode: 'static',
+          }),
+        ]
+      : []),
   ],
 });
