@@ -2,7 +2,7 @@
 // development config
 import merge from 'webpack-merge';
 import webpack from 'webpack';
-import commonConfig, {assetsDir} from './common.mjs';
+import commonConfig, { assetsDir } from './common.mjs';
 
 export default merge(commonConfig(true), {
   mode: 'development',
@@ -16,6 +16,12 @@ export default merge(commonConfig(true), {
     hot: true, // enable HMR on the server
     static: {
       directory: assetsDir,
+    },
+    client: {
+      overlay: {
+        errors: true,
+        warnings: false,
+      },
     },
   },
   //devtool: 'cheap-module-eval-source-map',
