@@ -45,6 +45,10 @@ export default dev => ({
           },
         ],
       },
+      {
+         test: /\.(s(a|c)ss)$/,
+         use: [dev ? 'style-loader' : MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
+      },
       // {
       //   test: /\.(scss|sass)$/,
       //   loaders: [

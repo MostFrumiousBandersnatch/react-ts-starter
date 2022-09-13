@@ -1,0 +1,8 @@
+$sane-color: #1a8917;
+$sassy-color: #ee1f74;
+
+$some-color: adjust-hue($sane-color, 90deg);
+
+.app {
+  color: $some-color;
+}
