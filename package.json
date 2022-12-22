@@ -16,6 +16,9 @@
     "test-watch": "jest --watchAll --config=jest.json",
     "test": "jest --coverage --config=jest.json"
   },
+  "engines": {
+    "node": "^16.15.1"
+  },
   "devDependencies": {
     "@babel/cli": "^7.10.3",
     "@babel/core": "^7.10.3",
