@@ -12,11 +12,22 @@
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
+    "plugin:import/recommended",
     "prettier"
   ],
   "rules": {
     "quotes": ["error", "single", { "avoidEscape": true }],
     "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn"
+    "react-hooks/exhaustive-deps": "warn",
+    "import/order": "warn"
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": true,
+      "node": true
+    },
+    "react": {
+      "version": "detect"
+    }
   }
 }
