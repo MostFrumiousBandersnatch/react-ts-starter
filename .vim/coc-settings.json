@@ -1,6 +1,7 @@
 {
   "tsserver.log": "verbose",
   "tsserver.trace.server": "verbose",
+  "tsserver.useLocalTsdk": true,
   "typescript.preferences.importModuleSpecifier": "non-relative",
   "typescript.preferences.quoteStyle": "single",
   "eslint.alwaysShowStatus": true
